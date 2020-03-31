@@ -1,0 +1,36 @@
+let library = [
+    {
+        title: "the road a head" ,
+        author: "bill gates" ,
+        libraryId: 1256
+    } ,
+    {
+        title: "steve jobs" ,
+        author: "walter isaacson" ,
+        libraryId: 4264
+    } ,
+    {
+        title: "mockingjay: the final book of hunger games" ,
+        author: "suzanne colins" ,
+        libraryId: 3245
+    } 
+];
+
+let sortedLibrary = [];
+
+let id = [];
+
+for(let value of library){
+    id.push(value.libraryId);
+}
+
+id.sort();
+
+for(let i=0;i<library.length;i++){
+    for(let value of library){
+        if( id[library.length - 1 - i] === value.libraryId )
+            sortedLibrary.push(value);
+    }
+}
+
+console.log(sortedLibrary);

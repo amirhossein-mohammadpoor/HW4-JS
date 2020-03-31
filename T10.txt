@@ -1,0 +1,7 @@
+addMinutes(new Date("2012,10,2"),30);
+
+function addMinutes(date,minutes=0){
+    let time = date.getTime();
+    time += minutes * 1000*60;
+    alert(new Date(time));
+}

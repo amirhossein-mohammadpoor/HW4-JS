@@ -1,0 +1,23 @@
+let x = toJalaliDate(new Date("2020,1,1"));
+
+alert(x);
+
+function toJalaliDate(date){
+    let daysOfWeek = ["Ìò‘‰»Â", "œÊ‘‰»Â", "”Â‘‰»Â", "çÂ«—‘‰»Â", "Å‰Ã‘‰»Â", "Ã⁄„Â", "‘‰»Â"];
+    let monthsOfYear = [,"›—Ê—œÌ‰","«—œÌ»Â‘ ","Œ—œ«œ"," Ì—","„—œ«œ","‘Â—ÌÊ—","„Â—","¬»«‰","¬–—","œÌ","»Â„‰","«”›‰œ"];
+
+    let localDate = date.toLocaleDateString("fa");
+
+    [localYear,localMonth,localDay] = localDate.split("/");
+
+
+    let monthName = (localMonth.length <2) ? 
+        monthsOfYear[localMonth.charCodeAt(0) - 1776] :
+        monthsOfYear[localMonth.charCodeAt(1) - 1776 + 10];
+
+    let dayName = daysOfWeek[date.getDay()];
+
+    let jalaliDate = dayName + "°" + localDay + monthName + localYear;
+
+    return jalaliDate;
+}

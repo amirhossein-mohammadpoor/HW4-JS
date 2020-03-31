@@ -1,0 +1,7 @@
+let str = prompt("write your range: ");
+
+let baseRange = +str;
+
+let range = baseRange*(5/100);
+
+alert(range);

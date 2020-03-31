@@ -1,0 +1,9 @@
+let str = "dog";
+let arr = [];
+
+for(let i=0;i<str.length;i++){
+    for(let j=i;j<str.length;j++)
+        arr.push(str.slice(i,j+1));
+}
+
+alert(arr);

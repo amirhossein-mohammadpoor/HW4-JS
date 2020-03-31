@@ -1,0 +1,13 @@
+let obj = {country:"iran", 
+capital:"tehran", 
+population: "18M"
+};
+
+let arr = [];
+
+for(let key in obj){
+    let [x,y] = [key,obj[key]];
+    arr.push([x,y]);
+}
+
+alert(arr);

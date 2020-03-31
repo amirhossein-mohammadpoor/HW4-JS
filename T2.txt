@@ -1,0 +1,39 @@
+[date1,date2] = [
+    new Date(2020,02,20,23,19,01),
+    new Date(2020,08,01,12,22,41)
+];
+
+let x = getDiffDate(date1,date2);
+
+console.log(x);
+
+function getDiffDate(date1,date2){
+    [time1,time2] = [date1.getTime(),date2.getTime()];
+
+    let timeDiff = time2 - time1;
+
+    let result = {};
+
+    let seconde = 1000;
+    let minute = 60*seconde;
+    let hour = 60*minute;
+    let day = 24*hour;
+    let month = 30*day;
+    let year = 12*month;
+
+    
+
+    result.year = (timeDiff/year)|0;
+    timeDiff %= year;
+    result.month = (timeDiff/month)|0;
+    timeDiff %= month;
+    result.day = (timeDiff/day)|0;
+    timeDiff %= day;
+    result.hour = (timeDiff/hour)|0;
+    timeDiff %= hour;
+    result.minute = (timeDiff/minute)|0;
+    timeDiff %= minute;
+    result.seconde = (timeDiff/seconde)|0;
+
+    return result;
+}

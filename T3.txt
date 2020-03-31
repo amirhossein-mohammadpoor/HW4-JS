@@ -1,0 +1,56 @@
+date1 = {
+    start: new Date(2020,02,20,23,19,01) ,
+    end: new Date(2020,08,01,12,22,41)
+};
+
+date2 = {
+    start: new Date(2020,02,20,23,19,01) ,
+    end: new Date(2025,10,01,12,22,41)
+};
+
+date3 = {
+    start: new Date(2020,02,20,23,19,01) ,
+    end: new Date(2030,10,01,12,22,41)
+};
+
+let x = getDiffDate(date1,date2,date3);
+
+console.log(x);
+
+
+function getDiffDate(...dates){
+    let obj = {};    
+    let res = [];
+    let timeDiff;
+    let seconde = 1000;
+    let minute = 60*seconde;
+    let hour = 60*minute;
+    let day = 24*hour;
+    let month = 30*day;
+    let year = 12*month;
+    let i=0;
+
+    for(let value of dates){
+        obj= {};
+
+        [time1,time2] = [value.start.getTime(),value.end.getTime()];
+        timeDiff = time2 - time1;
+
+        obj.year = (timeDiff/year)|0;
+        timeDiff %= year;
+        obj.month = (timeDiff/month)|0;
+        timeDiff %= month;
+        obj.day = (timeDiff/day)|0;
+        timeDiff %= day;
+        obj.hour = (timeDiff/hour)|0;
+        timeDiff %= hour;
+        obj.minute = (timeDiff/minute)|0;
+        timeDiff %= minute;
+        obj.seconde = (timeDiff/seconde)|0;
+        
+        res.push(obj);     
+    }
+
+    return res;
+    
+}

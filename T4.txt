@@ -1,0 +1,9 @@
+let UTCdate = new Date().toUTCString();
+
+alert( convertTimezone(UTCdate) );
+
+function convertTimezone(date){
+
+    return new Date(date).toLocaleString("fa");
+
+}
